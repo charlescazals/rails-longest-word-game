@@ -1,0 +1,28 @@
+<div class="container intro">
+  <h2 class= "text-center">Welcome to The Longest Word!</h2>
+  <form action="" class="form-group text-center">
+    <label for="question">How many letters would you like to play with? </label>
+    <input  class="form-control" type="text" id="question" name="grid_size" placeholder="ex: ''9''">
+    <input  class="form-control btn btn-success" type="submit" value="Go on!">
+  </form>
+</div>
+
+<div class=grid>
+  <h3 class="text-center">
+  <% @grid.each do |letter| %>
+    <%= letter %>
+  <% end %>
+  </h3>
+</div>
+
+<div class="container">
+  <h3 class= "text-center">Find a word with these letters</h3>
+  <form action="../sessions/score" class="form-group text-center">
+    <input class="form-control" type="text" name="word" placeholder="Your Word">
+    <input type="hidden" name="grid" value="<%= @grid.join %>">
+    <input type="hidden" name="start_time" value="<%= Time.now %>">
+    <input class="form-control btn btn-success" type="submit" value="Done!">
+  </form>
+</div>
+
+
